@@ -1,107 +1,96 @@
-﻿//Задача 19 Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом.
+﻿
+// Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.
+// [345, 897, 568, 234] -> 2
 
-// Console.WriteLine("Введите число: ");
-// string number = Console.ReadLine()!;
-// int len = number.Length;
+// Console.WriteLine("Введите длину массива:  ");
+// int size = Convert.ToInt32(Console.ReadLine());
+// int[] numbers = new int[size];
+// RandomNumbers(numbers);
+// Console.WriteLine("В этом массиве: ");
+// PrintArray(numbers);
 
-// if (len == 5)
+// void RandomNumbers(int[] numbers)
 // {
-//     if (number[0] == number[4] && number[1] == number[3])
+//     for(int i = 0; i < size; i++)
 //     {
-//         Console.WriteLine($"{number} - Палиндром");
+//         numbers[i] = new Random().Next(100,1000);
 //     }
-//     else
+// }
+
+
+// int count = 0;
+
+// for (int x = 0; x < numbers.Length; x++)
+// {
+// if (numbers[x] % 2 == 0)
+// count++;
+// }
+// Console.WriteLine($"из {numbers.Length} чисел, {count} четных");
+
+
+// void PrintArray(int[] numbers)
+// {
+//     Console.Write("[ ");
+//     for(int i = 0; i < numbers.Length; i++)
 //     {
-//         Console.WriteLine($"{number} - НЕ палиндром");
+//         Console.Write(numbers[i] + " ");
 //     }
-// }
-// else
-// {
-//     Console.WriteLine($"ОШИБКА: {number} - не является пятизначным");
+//     Console.Write("]");
+//     Console.WriteLine();
 // }
 
-// //Задача 21 Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве.
+// Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных индексах.
+// [3, 7, 23, 12] -> 19
+// [-4, -6, 89, 6] -> 0
 
-// System.Console.Write("Введите коррдинату x точки А: ");
-// int x1 = Convert.ToInt32(Console.ReadLine()); 
-// System.Console.Write("Введите коррдинату y точки А: ");
-// int y1 = Convert.ToInt32(Console.ReadLine());
-// System.Console.Write("Введите координату z точки A: ");
-// int z1 = Convert.ToInt32(Console.ReadLine());
-// System.Console.Write("Введите коордианту x точки B: ");
-// int x2 = Convert.ToInt32(Console.ReadLine()); 
-// System.Console.Write("Введите коордианту y точки B: ");
-// int y2 = Convert.ToInt32(Console.ReadLine());
-// System.Console.Write("Введите коррдинату x точки А: ");
-// int z2 = Convert.ToInt32(Console.ReadLine()); 
-// System.Console.Write("Введите коордианту z точки B: ");
-
-// double result = Math.Round(Math.Sqrt(Math.Pow((x1 - x2),2) + Math.Pow((y1-y2),2) + Math.Pow((z1-z2),2)),2); 
-// System.Console.WriteLine($"Расстояние между тремя точками: {result}");
-
-//Задача 23 Напишите программу, которая принимает на вход число (N) и выдаёт таблицу кубов чисел от 1 до N.
-
-// System.Console.WriteLine("Введи число");
-// int x = Convert.ToInt32(Console.ReadLine());
-
-// for(int i = 1; i <= x; i++)
-// {
-// System.Console.Write(Math.Pow(i, 3)+ " ");
-// }
-
-
-// Задача 25: Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B. (Задачи, решенные через Math.Pow, будут отправлены на переделку, так как задача стоит в том, чтобы написать цикл)
-
-// 3, 5 -> 243 (3⁵)
-
-// 2, 4 -> 16
-
-// Console.WriteLine("введите число A");
-// int a = Convert.ToInt32(Console.ReadLine());
-// Console.WriteLine("введите число B");
-// int b = Convert.ToInt32(Console.ReadLine());
-// int step = a;
-
-
-// for (int i = 1; i < b; i++)
-// {
-// step = step * a;
-// }
-
-// Console.WriteLine($"{a} в степени {b} равно: " + step);
-
-// Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
-// 452 -> 11
-// 82 -> 10
-// 9012 -> 12
-
-// 
-
-// Console.WriteLine("введите число");
-// int a = Convert.ToInt32(Console.ReadLine());
+// Console.WriteLine("Введите размер массива  ");
+// int size = Convert.ToInt32(Console.ReadLine());
+// int[] numbers = new int[size];
+// FillArrayRandomNumbers(numbers);
+// Console.WriteLine("массив: ");
+// PrintArray(numbers);
 // int sum = 0;
 
-// while (a > 0)
+// for (int z = 0; z < numbers.Length; z+=2)
+//     sum = sum + numbers[z];
+
+//     Console.WriteLine($"всего {numbers.Length} чисел, сумма элементов cтоящих на нечётных позициях = {sum}");
+
+// void FillArrayRandomNumbers(int[] numbers)
 // {
-// int num = a % 10;
-// a = a / 10;
-// sum = sum + num;
+//     for(int i = 0; i < numbers.Length; i++)
+//         {
+//             numbers[i] = new Random().Next(1,10);
+//         }
 // }
-// Console.WriteLine("сумма всех цифр в числе равна: " + sum);
+// void PrintArray(int[] numbers)
+// {
+//     Console.Write("[ ");
+//     for(int i = 0; i < numbers.Length; i++)
+//         {
+//             Console.Write(numbers[i] + " ");
+//         }
+//     Console.Write("]");
+//     Console.WriteLine();
+// }
 
-// Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран. (числа берете любые)
+// Задача 37: Найдите произведение пар чисел в одномерном массиве. Парой считаем первый и последний элемент, второй и предпоследний и т.д. Результат запишите в новом массиве.
+// [1 2 3 4 5] -> 5 8 3
+// [6 7 3 6] -> 36 21
 
-int[] Array = GetArray(8);
-Console.Write($"[{String.Join(";", Array)}]");
+int N = 10;
+int[] array = new int[N];
 
-int[] GetArray(int size)
+for (int i = 0; i < array.Length; i++)
 {
+    array[i] = new Random().Next(0, 10);
+    Console.Write(array[i] + " ");
+}
+Console.WriteLine();
 
-    int[] Array = new int[size];
-    for(int i = 0; i < size; i++)
-    {
-        Array[i] = new Random().Next(3, 10);
-    }
-     return Array;
-
+int j = array.Length - 1;
+for (int i = 0; i < (array.Length + 1) / 2; i++)
+{
+    Console.Write(array[i] * array[j] + " ");
+    j--;
 }
