@@ -121,47 +121,201 @@
 
  
 
-int[] array = GetArray(6,0,100);
-Console.Write("Начальный массив: ");
-Print1DArray(array);
-int[] bubble = BubbleSort(array);
-Console.Write("Итоговый массив: ");
-Print1DArray(bubble);
+// int[] array = GetArray(6,0,100);
+// Console.Write("Начальный массив: ");
+// Print1DArray(array);
+// int[] bubble = BubbleSort(array);
+// Console.Write("Итоговый массив: ");
+// Print1DArray(bubble);
 
 
-int[] GetArray(int size, int minValue,int maxValue)
-{
+// int[] GetArray(int size, int minValue,int maxValue)
+// {
 
-    int[] res = new int[size];
-    for(int i = 0; i < size; i++)
-    {
-        res[i] = new Random().Next(minValue, maxValue+1);        
-    }
-         return res;
+//     int[] res = new int[size];
+//     for(int i = 0; i < size; i++)
+//     {
+//         res[i] = new Random().Next(minValue, maxValue+1);        
+//     }
+//          return res;
      
-}
+// }
 
-void Print1DArray(int[] arr)
+// void Print1DArray(int[] arr)
+// {
+//     Console.WriteLine($"[{string.Join(", ", arr)}]");
+// }
+
+
+// int[] BubbleSort(int[] array)
+// {
+//     int temp = 0;
+//     for (int i = 0; i < array.Length; i++)
+//     {
+//         for (int j = i+1; j < array.Length; j++)
+//         {
+//             if (array[i] > array[j])
+//             {
+//                 temp = array[i];
+//                 array[i] = array[j];
+//                 array[j] = temp;
+//             }
+//         }
+//     }
+//     return array;
+// }
+
+
+
+// Задача 47. Задайте двумерный массив размером m×n, заполненный случайными вещественными числами.
+// m = 3, n = 4.
+// 0,5 7 -2 -0,2
+// 1 -3,3 8 -9,9
+// 8 7,8 -7,1 9
+
+
+// int m = 3;
+// int n = 4;
+// double[,] array = new double [m, n];
+
+// GetArray(array);
+// PrintArray(array);
+
+
+// //-------metods--------
+
+// void GetArray(double[,] array)                                          
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             array[i, j] = new Random().NextDouble();
+//         }
+//     }
+// }
+
+// void PrintArray(double[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             Console.Write($"{array[i, j]} ");
+//         }
+//         Console.WriteLine();
+//     }
+// }
+
+// Задача 50. Напишите программу, которая на вход принимает число, и проверяет есть ли такое число в двумерном массиве, а также возвращает сообщение о том, что оно найдено или же указание, что такого элемента нет.
+// Например, задан массив:
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
+// 17 -> такого числа в массиве нет
+
+
+// void GetArray(int[,] array)
+// {
+//     for (int m = 0; m < array.GetLength(0); m++)
+//     {
+//         for (int n = 0; n < array.GetLength(1); n++)
+//         {
+//             array[m, n] = new Random().Next(1, 20);
+//         }
+//     }
+// }
+// void PrintArray(int[,] array)
+// {
+//     for (int m = 0; m < array.GetLength(0); m++)
+//     {
+//         for (int n = 0; n < array.GetLength(1); n++)
+//         {
+//             Console.Write($"{array[m, n]} ");
+//         }
+//         Console.WriteLine();
+//     }
+// }
+// int m = 5;
+// int n = 5;
+// int[,] array = new int[m, n];
+
+// GetArray(array);
+// PrintArray(array);
+
+// Console.WriteLine("Введите число: ");
+// int num = int.Parse(Console.ReadLine()!);
+// string Position(int[,] array)
+// {
+//     string result = string.Empty;
+//     for (int m = 0; m < array.GetLength(0); m++)
+//     {
+//         for (int n = 0; n < array.GetLength(1); n++)
+//         {
+//             if (num == array[m, n]) result += $"({m}, {n})";
+//         }
+//     }
+//     if (result == string.Empty) result = "Такого элемента нет";
+//     return result;
+// }
+// Console.WriteLine(Position(array));
+
+
+// Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
+// Например, задан массив:
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
+// Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
+
+
+int m = 5;
+int n = 5;
+int[,] array = new int[m, n];
+
+//--------metods-------
+
+void GetArray(int[,] array)
 {
-    Console.WriteLine($"[{string.Join(", ", arr)}]");
-}
-
-
-int[] BubbleSort(int[] array)
-{
-    int temp = 0;
-    for (int i = 0; i < array.Length; i++)
+    for (int m = 0; m < array.GetLength(0); m++)
     {
-        for (int j = i+1; j < array.Length; j++)
+        for (int n = 0; n < array.GetLength(1); n++)
         {
-            if (array[i] > array[j])
-            {
-                temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
-            }
+            array[m, n] = new Random().Next(1, 20);
         }
     }
-    return array;
 }
-
+void PrintArray(int[,] array)
+{
+    for (int m = 0; m < array.GetLength(0); m++)
+    {
+        for (int n = 0; n < array.GetLength(1); n++)
+        {
+            Console.Write($"{array[m, n]} ");
+        }
+        Console.WriteLine();
+    }
+}
+string ArithmeticMean(int[,] array)
+{
+    string result = string.Empty;
+    for (int n = 0; n < array.GetLength(1); n++)
+    {
+        int sum = 0;
+        int count = 0;
+        double mean = 0;
+        for (int m = 0; m < array.GetLength(0); m++)
+        {
+            sum += array[m, n];
+            count++;
+        }
+        mean = sum / count;
+        result += mean.ToString() + " ";
+    }
+    return result;
+}
+ 
+ GetArray(array);
+PrintArray(array);
+Console.WriteLine();
+Console.WriteLine(ArithmeticMean(array));
