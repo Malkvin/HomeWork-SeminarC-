@@ -441,76 +441,164 @@
 //     }
 // }
 
-// Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
-// Например, даны 2 матрицы:
-// 2 4 | 3 4
-// 3 2 | 3 3
-// Результирующая матрица будет:
-// 18 20
-// 15 18
+// // Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
+// // Например, даны 2 матрицы:
+// // 2 4 | 3 4
+// // 3 2 | 3 3
+// // Результирующая матрица будет:
+// // 18 20
+// // 15 18
 
-int rows = ReadInt("Введите количество строк: ");
-int columns = ReadInt("Введите количество столбцов: ");
-int[,] array = new int[rows, columns];
-int[,] secondArray = new int[rows, columns];
-int[,] resultArray = new int[rows, columns];
+// int rows = ReadInt("Введите количество строк: ");
+// int columns = ReadInt("Введите количество столбцов: ");
+// int[,] array = new int[rows, columns];
+// int[,] secondArray = new int[rows, columns];
+// int[,] resultArray = new int[rows, columns];
 
-GetArrayRandom(array);
-PrintArray2D(array);
+// GetArrayRandom(array);
+// PrintArray2D(array);
 
-Console.WriteLine();
+// Console.WriteLine();
 
-GetArrayRandom(secondArray);
-PrintArray2D(secondArray);
+// GetArrayRandom(secondArray);
+// PrintArray2D(secondArray);
 
-Console.WriteLine();
+// Console.WriteLine();
 
-if (array.GetLength(0) != secondArray.GetLength(1))
+// if (array.GetLength(0) != secondArray.GetLength(1))
+// {
+//     Console.WriteLine(" Нельзя перемножить ");
+//     return;
+// }
+// for (int i = 0; i < array.GetLength(0); i++)
+// {
+//     for (int j = 0; j < secondArray.GetLength(1); j++)
+//     {
+//         resultArray[i, j] = 0;
+//         for (int k = 0; k < array.GetLength(1); k++)
+//         {
+//             resultArray[i, j] += array[i, k] * secondArray[k, j];
+//         }
+//     }
+// }
+
+// PrintArray2D(resultArray);
+
+
+// int ReadInt(string message)
+// {
+//     Console.Write(message);
+//     return Convert.ToInt32(Console.ReadLine());
+// }
+
+
+// void GetArrayRandom(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             array[i, j] = new Random().Next(1, 10);
+//         }
+//     }
+// }
+
+// void PrintArray2D(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             Console.Write($"{array[i, j]} ");
+//         }
+//         Console.WriteLine();
+//     }
+// }
+
+// Выполнить с помощью рекурсии.Задайте значение N. Напишите программу, которая выведет все натуральные числа в промежутке от N до 1.
+// N = 5 -> "5, 4, 3, 2, 1"
+// N = 8 -> "8, 7, 6, 5, 4, 3, 2, 1"
+
+// Console.Write("Введите число: ");
+// int number = int.Parse(Console.ReadLine()!);
+// int count = 1;
+// NaturalToLow(number, count);
+
+
+// void NaturalToLow(int n, int count)
+// {
+//     if (count > n)
+//     {
+//         return;
+//     }
+//     else
+//     {
+//         NaturalToLow(n, count + 1);
+//         Console.Write(count + " ");
+//     }
+// }
+
+// Выполнить с помощью рекурсии.Задайте значения M и N. Напишите программу, которая найдёт сумму натуральных элементов в промежутке от M до N.
+// M = 1; N = 15 -> 120
+// M = 4; N = 8. -> 30
+
+// Console.Write("Введите число M: ");
+// int m = int.Parse(Console.ReadLine()!);
+
+// Console.Write("Введите число N: ");
+// int n = int.Parse(Console.ReadLine()!);
+
+// SumFromMToN(m, n);
+
+// void SumFromMToN(int m, int n)
+// {
+//     Console.Write(SumMN(m - 1, n));
+// }
+
+// int SumMN(int m, int n)
+// {
+//     int res = m;
+//     if (m == n)
+//         return 0;
+//     else
+//     {
+//         m++;
+//         res = m + SumMN(m, n);
+//         return res;
+//     }
+// }
+
+// Выполнить с помощью рекурсии.Напишите программу вычисления функции Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n.
+// m = 2, n = 3 -> A(m,n) = 9
+// m = 3, n = 2 -> A(m,n) = 29
+
+
+Console.Write("Введите число M: ");
+int m = int.Parse(Console.ReadLine()!);
+
+Console.Write("Введите число N: ");
+int n = int.Parse(Console.ReadLine()!);
+
+AkkermanFunction(m,n);
+
+
+void AkkermanFunction(int m, int n)
 {
-    Console.WriteLine(" Нельзя перемножить ");
-    return;
+    Console.Write(Akkerman(m, n)); 
 }
-for (int i = 0; i < array.GetLength(0); i++)
+
+int Akkerman(int m, int n)
 {
-    for (int j = 0; j < secondArray.GetLength(1); j++)
+    if (m == 0)
     {
-        resultArray[i, j] = 0;
-        for (int k = 0; k < array.GetLength(1); k++)
-        {
-            resultArray[i, j] += array[i, k] * secondArray[k, j];
-        }
+        return n + 1;
     }
-}
-
-PrintArray2D(resultArray);
-
-
-int ReadInt(string message)
-{
-    Console.Write(message);
-    return Convert.ToInt32(Console.ReadLine());
-}
-
-
-void GetArrayRandom(int[,] array)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
+    else if (n == 0 && m > 0)
     {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            array[i, j] = new Random().Next(1, 10);
-        }
+        return Akkerman(m - 1, 1);
     }
-}
-
-void PrintArray2D(int[,] array)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
+    else
     {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            Console.Write($"{array[i, j]} ");
-        }
-        Console.WriteLine();
+        return (Akkerman(m - 1, Akkerman(m, n - 1)));
     }
 }
